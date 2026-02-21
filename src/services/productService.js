@@ -1,9 +1,9 @@
 import API from "./api";
 
 // Get all products
-export const getProducts = async () => {
-  const res = await API.get("/products");
-  return res.data.data; // products array
+export const getProducts = async (params = {}) => {
+  const res = await API.get("/products", { params });
+  return res.data.data;
 };
 
 // Get product by slug
