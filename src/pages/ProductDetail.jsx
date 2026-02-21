@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getProductBySlug, getAllProducts } from "../services/productService";
 import { motion } from "framer-motion";
-import ProductSkeleton from "../components/ProductSkeleton"; 
+import ProductSkeleton from "../components/ProductSkeleton";
 const ProductDetail = () => {
   const { slug } = useParams();
   const [product, setProduct] = useState(null);
@@ -14,15 +14,15 @@ const ProductDetail = () => {
       try {
         const data = await getProductBySlug(slug);
         setProduct(data);
-    
+
         const allProducts = await getAllProducts();
-    
+
         const filtered = allProducts.filter(
           (p) =>
             p.category === data.category &&
             p._id !== data._id
         );
-    
+
         setRelated(filtered.slice(0, 3));
       } catch (error) {
         console.error(error);
@@ -30,12 +30,12 @@ const ProductDetail = () => {
         setLoading(false);
       }
     };
-    
+
 
     fetchProduct();
   }, [slug]);
 
-// WhatsApp handler
+  // WhatsApp handler
   const handleWhatsApp = () => {
     const phoneNumber = "918770932665"; // apna number
     const message = `Hi Loomiva,
@@ -52,7 +52,7 @@ const ProductDetail = () => {
         <ProductSkeleton />
       </div>
     );
-   
+
 
   if (!product)
     return <div className="text-center mt-20">Product not found</div>;
@@ -85,14 +85,14 @@ const ProductDetail = () => {
           transition={{ duration: 0.5 }}
           className="overflow-hidden rounded-2xl"
         >
-  
-        <motion.img
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.4 }}
-          src={product.image?.url || product.image}
-          alt={product.name}
-          className="w-full shadow-lg object-cover cursor-pointer"
-        />
+
+          <motion.img
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.4 }}
+            src={product.image?.url || product.image}
+            alt={product.name}
+            className="w-full shadow-lg object-cover cursor-pointer"
+          />
         </motion.div>
 
 
@@ -127,33 +127,33 @@ const ProductDetail = () => {
       </div>
 
       {/* 🔥 Related Products */}
-{related.length > 0 && (
-  <div className="mt-20">
-    <h2 className="text-2xl font-bold mb-8">
-      Related Products
-    </h2>
+      {related.length > 0 && (
+        <div className="mt-20">
+          <h2 className="text-2xl font-bold mb-8">
+            Related Products
+          </h2>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      {related.map((item) => (
-        <Link key={item._id} to={`/products/${item.slug}`}>
-          <div className="bg-white rounded-xl shadow hover:shadow-lg transition p-4">
-            <img
-              src={item.image?.url || item.image}
-              alt={item.name}
-              className="w-full h-48 object-cover rounded-lg"
-            />
-            <h3 className="mt-3 font-semibold">
-              {item.name}
-            </h3>
-            <p className="text-pink-600 font-medium">
-              ₹{item.price}
-            </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {related.map((item) => (
+              <Link key={item._id} to={`/products/${item.slug}`}>
+                <div className="bg-white rounded-xl shadow hover:shadow-lg transition p-4">
+                  <img
+                    src={item.image?.url || item.image}
+                    alt={item.name}
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
+                  <h3 className="mt-3 font-semibold">
+                    {item.name}
+                  </h3>
+                  <p className="text-pink-600 font-medium">
+                    ₹{item.price}
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
-        </Link>
-      ))}
-    </div>
-  </div>
-)}
+        </div>
+      )}
 
     </motion.div>
   );

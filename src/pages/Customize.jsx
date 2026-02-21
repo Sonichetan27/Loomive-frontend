@@ -18,7 +18,7 @@ export default function Customize() {
     <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200">
 
       {/* HERO SECTION */}
-      <section className="py-24 px-6 text-center max-w-4xl mx-auto">
+      <section className="py-24 px-6 text-center max-w-4xl mx-auto mt-6">
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">
           Designed By You. <br />
           <span className="block text-pink-600 mt-2">

@@ -3,7 +3,7 @@ import API from "./api";
 // Get all products
 export const getProducts = async (params = {}) => {
   const res = await API.get("/products", { params });
-  return res.data.data;
+  return res.data;
 };
 
 // Get product by slug

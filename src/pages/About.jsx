@@ -5,7 +5,7 @@ const About = () => {
     <div className="bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200">
 
       {/* ================= HERO SECTION ================= */}
-      <section className="relative py-24 px-6 text-center overflow-hidden">
+      <section className="relative py-24 px-6 text-center overflow-hidden mt-6">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ const About = () => {
       </section>
 
       {/* ================= FOUNDER SECTION ================= */}
-      <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
+      <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center ">
 
         {/* Founder Image */}
         <motion.div
