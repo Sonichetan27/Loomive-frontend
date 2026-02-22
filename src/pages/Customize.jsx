@@ -40,21 +40,21 @@ export default function Customize() {
 
           <div className="grid md:grid-cols-3 gap-10">
 
-            <div className="p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-sm">
+            <div className="p-6 rounded-2xl bg-white border border-gray-200 dark:border-gray-700 dark:bg-gray-800 shadow-lg">
               <h3 className="font-semibold text-xl mb-3">Color Palette</h3>
               <p className="text-gray-600 dark:text-gray-400">
                 Choose from soft pastels, warm neutrals, or vibrant festive shades.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-sm">
+            <div className="p-6 rounded-2xl bg-white border border-gray-200 dark:border-gray-700 dark:bg-gray-800 shadow-lg">
               <h3 className="font-semibold text-xl mb-3">Design & Pattern</h3>
               <p className="text-gray-600 dark:text-gray-400">
                 Minimal textures, traditional motifs, or completely custom patterns.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-sm">
+            <div className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg">
               <h3 className="font-semibold text-xl mb-3">Personal Touch</h3>
               <p className="text-gray-600 dark:text-gray-400">
                 Add names, initials, special dates, or meaningful messages.

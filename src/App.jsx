@@ -4,6 +4,7 @@ import Products from "./pages/Products";
 import Navbar from "./components/Navbar";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import Footer from "./components/Footer";
@@ -29,6 +30,7 @@ function App() {
         <Route path="/products/:slug" element={<ProductDetail />} />
         <Route path="/about" element={<About />} />
         <Route path="/customize" element={<Customize />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

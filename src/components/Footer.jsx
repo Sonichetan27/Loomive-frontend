@@ -5,19 +5,19 @@ const Footer = () => {
   return (
     <footer className="relative z-20 bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 pt-24 pb-8">
 
-{/* Wave */}
-<div className="absolute -top-20 left-0 w-full overflow-hidden leading-none">
-  <svg
-    viewBox="0 0 1440 320"
-    className="w-full h-24 drop-shadow-[0_-6px_15px_rgba(0,0,0,0.15)]"
-    preserveAspectRatio="none"
-  >
-    <path
-      className="fill-gray-100 dark:fill-gray-900"
-      d="M0,192L80,181.3C160,171,320,149,480,160C640,171,800,213,960,224C1120,235,1280,213,1360,202.7L1440,192V320H0Z"
-    />
-  </svg>
-</div>
+      {/* Wave */}
+      <div className="absolute -top-20 left-0 w-full overflow-hidden leading-none">
+        <svg
+          viewBox="0 0 1440 320"
+          className="w-full h-24 drop-shadow-[0_-6px_15px_rgba(0,0,0,0.15)]"
+          preserveAspectRatio="none"
+        >
+          <path
+            className="fill-gray-100 dark:fill-gray-900"
+            d="M0,192L80,181.3C160,171,320,149,480,160C640,171,800,213,960,224C1120,235,1280,213,1360,202.7L1440,192V320H0Z"
+          />
+        </svg>
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
 
