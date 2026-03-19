@@ -98,9 +98,9 @@ export default function Customize() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-2">4. Delivery With Warmth</h3>
+              <h3 className="text-xl font-semibold mb-2">4. Handovered With Warmth</h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Your custom creation is securely packed and delivered to your doorstep.
+                Your custom creation is securely packed and handovered to you.
               </p>
             </div>
 
