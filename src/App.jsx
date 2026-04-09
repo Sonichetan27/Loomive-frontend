@@ -1,18 +1,18 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Products from "./pages/Products";
 import Navbar from "./components/Navbar";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Home from "./pages/Home";
-import ProductDetail from "./pages/ProductDetail";
 import Footer from "./components/Footer";
 import Customize from "./pages/Customize";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
-import { lazy, Suspense } from "react";
+// Lazy loaded components
+const Home = lazy(() => import("./pages/Home"));
+const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 
 
 function App() {
