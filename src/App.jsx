@@ -16,8 +16,6 @@ const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 
 
 function App() {
-  const Home = lazy(() => import("./pages/Home"));
-  const ProductDetail = lazy(() => import("./pages/ProductDetail"));
   return (
     <BrowserRouter>
      <ScrollToTop/>
