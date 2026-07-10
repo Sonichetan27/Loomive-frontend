@@ -15,6 +15,7 @@
       "headers": { "cache-control": "s-maxage=31536000, immutable" },
       "dest": "/assets/$1"
     },
+    { "handle": "filesystem" },
     {
       "src": "/(.*)",
       "dest": "/index.html"
