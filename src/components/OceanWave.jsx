@@ -20,7 +20,7 @@ const OceanWave = () => (
 
     {/* front layer: matches the footer background, faster drift */}
     <svg
-      className="wave-front absolute bottom-0 left-0 w-[200%] h-full text-gray-100 dark:text-gray-900"
+      className="wave-front absolute bottom-0 left-0 w-[200%] h-full text-[#dadada] dark:text-gray-900"
       viewBox="0 0 2880 120"
       preserveAspectRatio="none"
     >

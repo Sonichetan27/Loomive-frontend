@@ -4,7 +4,7 @@ import OceanWave from "./OceanWave";
 
 const Footer = () => {
   return (
-    <footer className="relative z-20 bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 pt-24 pb-8">
+    <footer className="relative z-20 bg-[#dadada] dark:bg-gray-900 text-gray-700 dark:text-gray-300 pt-24 pb-8">
 
       {/* Wave */}
       <OceanWave />
