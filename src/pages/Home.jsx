@@ -21,7 +21,7 @@ const Home = () => {
           <img
             src="https://img.freepik.com/free-photo/close-up-wool-texture-details_23-2149620436.jpg?semt=ais_hybrid&w=740&q=80"
             alt="background"
-            className="w-full h-full object-cover opacity-[0.35]"
+            className="w-full h-full object-cover opacity-[0.65]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-gray-950/60 via-gray-950/80 to-gray-950" />
         </div>
@@ -45,7 +45,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="font-serifcl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05]"
+              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05]"
             >
               Handmade Creations
               <span className="font-display thread-underline block text-pink-500 mt-2">

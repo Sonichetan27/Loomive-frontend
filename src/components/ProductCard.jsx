@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
       </Link>
 
       <div className="p-4">
-        <h2 className="font-display text-lg font-bold text-gray-800 dark:text-gray-100 group-hover:text-pink-600 transition-colors">
+        <h2 className="text-lg font-bold text-gray-800 dark:text-gray-100 group-hover:text-pink-600 transition-colors">
           {product.name}
         </h2>
 
