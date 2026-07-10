@@ -63,7 +63,7 @@ const Home = () => {
   </Link>
 
   <a
-    href="https://wa.me/918770932665"
+    href="https://wa.me/918305804566"
     target="_blank"
     rel="noreferrer"
     className="px-6 py-3 rounded-xl 

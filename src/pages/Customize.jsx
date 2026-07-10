@@ -1,4 +1,4 @@
-const phoneNumber = "918770932665";
+const phoneNumber = "918305804566";
 
 const handleWhatsApp = () => {
   const message = `
@@ -133,7 +133,7 @@ export default function Customize() {
         </h2>
 
         <a
-          href="https://wa.me/918770932665"
+          href="https://wa.me/918305804566"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-8 py-4 rounded-2xl 

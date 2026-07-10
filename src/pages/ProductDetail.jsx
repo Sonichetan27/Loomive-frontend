@@ -37,7 +37,7 @@ const ProductDetail = () => {
 
   // WhatsApp handler
   const handleWhatsApp = () => {
-    const phoneNumber = "918770932665"; // apna number
+    const phoneNumber = "918305804566"; // apna number
     const message = `Hi Loomiva,
   I am interested in customizing the product: ${product.name}.
   Please guide me further.`;

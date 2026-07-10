@@ -55,7 +55,7 @@ const Footer = () => {
               <Mail size={16} /> support@loomiva.com
             </p>
             <p className="flex items-center gap-2">
-              <Phone size={16} /> +91 8770932665
+              <Phone size={16} /> +91 8305804566
             </p>
             <p className="flex items-center gap-2">
               <Instagram size={16} /> @loomiva
