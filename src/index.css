@@ -7,8 +7,129 @@ body {
   @apply bg-gradient-to-br from-white via-gray-50 to-gray-100 
   dark:from-gray-900 dark:via-gray-800 dark:to-black
   text-gray-900 dark:text-gray-100 transition-colors duration-500;
+  font-family: "Inter", sans-serif;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ================= Ambient grain texture ================= */
+/* A very subtle animated noise layer, like the nap of woven fabric.
+   Sits above the background, below all content, and never intercepts clicks. */
+.grain-overlay {
+  position: fixed;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.dark .grain-overlay {
+  opacity: 0.05;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .grain-overlay {
+    animation: grain 8s steps(10) infinite;
+  }
+}
+
+/* ================= Thread underline ================= */
+/* A hand-stitched underline that draws itself in on scroll/hover,
+   used beneath key words instead of a flat solid line. */
+.thread-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.thread-underline svg {
+  position: absolute;
+  left: -2%;
+  bottom: -0.12em;
+  width: 104%;
+  height: 0.5em;
+  overflow: visible;
+}
+
+.thread-underline path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 340;
+  stroke-dashoffset: 340;
+  animation: draw-thread 1.1s ease-out 0.5s forwards;
+}
+
+@keyframes draw-thread {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thread-underline path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ================= Stitch link hover ================= */
+.stitch-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.stitch-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    currentColor 55%,
+    transparent 0%
+  );
+  background-position: bottom;
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.stitch-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ================= Ocean wave drift ================= */
+@keyframes wave-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.wave-back {
+  animation: wave-drift 22s linear infinite;
+}
+
+.wave-front {
+  animation: wave-drift 13s linear infinite reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-back,
+  .wave-front {
+    animation: none;
+  }
+}

@@ -8,42 +8,39 @@ const Navbar = () => {
 
   return (
     <nav className="w-full fixed top-0 left-0 z-50 backdrop-blur-md bg-white/70 dark:bg-gray-900/70 border-b border-pink-600/20">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
 
-        {/* Left Section */}
-        <div className="flex items-center gap-10">
+        {/* Logo */}
+        <Link
+          to="/"
+          className="flex items-center gap-3 text-gray-800 dark:text-gray-200 shrink-0"
+        >
+          <img
+            src="/logo.jpeg"
+            alt="Loomiva Logo"
+            className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover"
+          />
 
-          <Link
-            to="/"
-            className="flex items-center gap-3 text-gray-800 dark:text-gray-200"
-          >
-            <img
-              src="/logo.jpeg"
-              alt="Loomiva Logo"
-              className="w-14 h-14 rounded-full object-cover"
-            />
-
-            <div className="flex flex-col leading-tight">
-              <span className="text-xl font-bold">
-                Loomiva
-              </span>
-              <span className="text-sm font-normal">
-                Where threads tell stories
-              </span>
-            </div>
-          </Link>
-
-          {/* Desktop Links */}
-          <div className="hidden md:flex gap-14 font-medium ml-52">
-            <Link to="/products">Products</Link>
-            <Link to="/customize">Customize</Link>
-            <Link to="/about">About</Link>
+          <div className="flex flex-col leading-tight">
+            <span className=" text-xl font-bold">
+              Loomiva
+            </span>
+            <span className="hidden sm:block text-sm font-normal text-gray-500 dark:text-gray-400">
+              Where threads tell stories
+            </span>
           </div>
+        </Link>
 
+        {/* Desktop Links */}
+        <div className="hidden md:flex flex-1 justify-center gap-10 lg:gap-14 font-medium">
+          <Link to="/products" className="stitch-link hover:text-pink-600 transition-colors">Products</Link>
+          <Link to="/customize" className="stitch-link hover:text-pink-600 transition-colors">Customize</Link>
+          <Link to="/about" className="stitch-link hover:text-pink-600 transition-colors">About</Link>
+          <Link to="/contact" className="stitch-link hover:text-pink-600 transition-colors">Contact</Link>
         </div>
 
         {/* Right Section */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
 
           {/* Theme Toggle */}
           <ThemeToggle />
@@ -62,10 +59,11 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-whitegray shadow-md px-6 py-4 space-y-4 flex flex-row">
-          <Link to="/products" onClick={() => setOpen(false)}>Products</Link>
-          <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
-          <Link to="/about" onClick={() => setOpen(false)}>About</Link>
+        <div className="md:hidden bg-white dark:bg-gray-900 shadow-md px-6 py-4 flex flex-col gap-4 text-lg">
+          <Link to="/products" onClick={() => setOpen(false)} className="stitch-link hover:text-pink-600 transition-colors">Products</Link>
+          <Link to="/customize" onClick={() => setOpen(false)} className="stitch-link hover:text-pink-600 transition-colors">Customize</Link>
+          <Link to="/about" onClick={() => setOpen(false)} className="stitch-link hover:text-pink-600 transition-colors">About</Link>
+          <Link to="/contact" onClick={() => setOpen(false)} className="stitch-link hover:text-pink-600 transition-colors">Contact</Link>
         </div>
       )}
     </nav>

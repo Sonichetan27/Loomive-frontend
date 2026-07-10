@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../services/productService";
 import ProductCard from "../components/ProductCard";
 import Reveal from "../components/Reveal";
+import AmbientGlow from "../components/AmbientGlow";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -72,13 +73,14 @@ const Products = () => {
 
   return (
     <Reveal>
-      <div className="max-w-7xl mx-auto px-6 py-24">
-        <h1 className="text-3xl font-bold text-center mb-8 mt-6">
+      <div className="relative max-w-7xl mx-auto px-6 py-24 overflow-hidden">
+        <AmbientGlow className="-top-10 right-0 w-72 h-72" />
+        <h1 className="font-display text-3xl font-bold text-center mb-8 mt-6">
           Our Products
         </h1>
         <div className="flex flex-col md:flex-row gap-4 justify-center mb-10">
 
-          <div className="grid md:grid-cols-4 gap-4 mb-6 mt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 mt-4">
 
             {/* Search */}
             <input

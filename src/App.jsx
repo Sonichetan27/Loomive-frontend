@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Customize from "./pages/Customize";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import GrainOverlay from "./components/GrainOverlay";
 
 // Lazy loaded components
 const Home = lazy(() => import("./pages/Home"));
@@ -19,6 +20,7 @@ function App() {
   return (
     <BrowserRouter>
      <ScrollToTop/>
+    <GrainOverlay />
     <Navbar />
     <FloatingWhatsApp />
     <Suspense fallback={<div className="text-center py-20">Loading...</div>}>

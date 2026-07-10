@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import AmbientGlow from "../components/AmbientGlow";
 
 const About = () => {
   return (
@@ -6,15 +7,20 @@ const About = () => {
 
       {/* ================= HERO SECTION ================= */}
       <section className="relative py-24 px-6 text-center overflow-hidden mt-6">
+        <AmbientGlow className="-top-10 -left-16 w-72 h-72" />
+        <AmbientGlow className="top-10 -right-10 w-80 h-80 bg-wool-400/10" delay="1.2s" />
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-6xl font-bold"
+          className="font-display text-4xl md:text-6xl font-bold"
         >
           We Don’t Just Create Products.
-          <span className="block text-pink-600 mt-2">
+          <span className="thread-underline block text-pink-600 mt-2">
             We Weave Stories.
+            <svg viewBox="0 0 300 24" preserveAspectRatio="none">
+              <path d="M2 16C40 4 80 22 120 12C160 2 200 20 240 10C260 5 280 8 298 6" />
+            </svg>
           </span>
         </motion.h1>
 
@@ -30,7 +36,8 @@ const About = () => {
       </section>
 
       {/* ================= FOUNDER SECTION ================= */}
-      <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center ">
+      <section className="relative max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center overflow-hidden">
+        <AmbientGlow className="top-1/3 left-1/2 w-96 h-96 bg-pink-600/5" />
 
         {/* Founder Image */}
         <motion.div
@@ -55,7 +62,7 @@ const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className="font-serif text-3xl font-bold mb-6">
             Meet The Founder
           </h2>
 
@@ -80,13 +87,14 @@ const About = () => {
       </section>
 
       {/* ================= VALUES SECTION ================= */}
-      <section className="py-24 bg-gray-50 dark:bg-gray-900">
+      <section className="relative py-24 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+        <AmbientGlow className="bottom-0 -left-20 w-80 h-80" delay="0.6s" />
         <div className="max-w-6xl mx-auto px-6 text-center">
 
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-3xl font-bold mb-12"
+            className="font-display text-3xl font-bold mb-12"
           >
             What Makes Loomiva Different
           </motion.h2>
@@ -116,9 +124,10 @@ const About = () => {
                            backdrop-blur-md 
                            bg-white/60 dark:bg-gray-800/60 
                            border border-gray-200 dark:border-gray-700 
-                           shadow-lg"
+                           shadow-lg transition-all duration-300
+                           hover:-translate-y-1 hover:border-pink-500/30 hover:shadow-pink-600/10"
               >
-                <h3 className="text-xl font-semibold mb-4">
+                <h3 className="font-serif text-xl font-bold mb-4">
                   {item.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400">
@@ -132,11 +141,12 @@ const About = () => {
       </section>
 
       {/* ================= MISSION SECTION ================= */}
-      <section className="py-24 px-6 text-center">
+      <section className="relative py-24 px-6 text-center overflow-hidden">
+        <AmbientGlow className="top-0 right-1/4 w-72 h-72 bg-wool-400/10" />
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="text-3xl font-bold mb-6"
+          className="font-display text-3xl font-bold mb-6"
         >
           Our Mission
         </motion.h2>
