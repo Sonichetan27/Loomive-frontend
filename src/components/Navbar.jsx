@@ -16,7 +16,7 @@ const Navbar = () => {
           className="flex items-center gap-3 text-gray-800 dark:text-gray-200 shrink-0"
         >
           <img
-            src="/public/logo.jpeg"
+            src="/logo.jpeg"
             alt="Loomiva Logo"
             className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover"
           />

@@ -48,7 +48,7 @@ const About = () => {
         >
           <div className="relative">
             <img
-              src="/public/founder.jpg"   // 👈 apni image public folder me daal dena
+              src="/founder.jpg"   // 👈 apni image public folder me daal dena
               alt="Founder"
               className="w-72 h-72 object-cover rounded-2xl shadow-2xl"
             />
