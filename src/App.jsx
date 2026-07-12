@@ -10,10 +10,18 @@ import Customize from "./pages/Customize";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import GrainOverlay from "./components/GrainOverlay";
+import AdminLogin from "./pages/admin/AdminLogin";
+import ForgotPassword from "./pages/admin/ForgotPassword";
+import AdminLayout from "./components/admin/AdminLayout";
+import ProtectedRoute from "./components/admin/ProtectedRoute";
 
 // Lazy loaded components
 const Home = lazy(() => import("./pages/Home"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
+const AdminProducts = lazy(() => import("./pages/admin/Products"));
+const AdminCategories = lazy(() => import("./pages/admin/Categories"));
+const ChangePassword = lazy(() => import("./pages/admin/ChangePassword"));
 
 
 function App() {
@@ -31,6 +39,24 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/customize" element={<Customize />} />
         <Route path="/contact" element={<Contact />} />
+        
+        {/* Admin Routes */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/forgot-password" element={<ForgotPassword />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="products" element={<AdminProducts />} />
+          <Route path="categories" element={<AdminCategories />} />
+          <Route path="change-password" element={<ChangePassword />} />
+        </Route>
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
