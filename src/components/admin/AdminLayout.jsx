@@ -6,12 +6,48 @@ const AdminLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [inactivityTimer, setInactivityTimer] = useState(null);
 
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
     localStorage.removeItem("adminData");
-    navigate("/admin/login");
+    navigate("/secure-panel-7f3a2c9e/login");
   };
+
+  // Auto-logout after 3 minutes of inactivity
+  useEffect(() => {
+    const resetTimer = () => {
+      if (inactivityTimer) clearTimeout(inactivityTimer);
+      const timer = setTimeout(() => {
+        handleLogout();
+      }, 3 * 60 * 1000); // 3 minutes
+      setInactivityTimer(timer);
+    };
+
+    const handleActivity = () => {
+      resetTimer();
+    };
+
+    // Set initial timer
+    resetTimer();
+
+    // Add event listeners for user activity
+    window.addEventListener('mousemove', handleActivity);
+    window.addEventListener('keypress', handleActivity);
+    window.addEventListener('click', handleActivity);
+    window.addEventListener('scroll', handleActivity);
+    window.addEventListener('touchstart', handleActivity);
+
+    // Cleanup
+    return () => {
+      if (inactivityTimer) clearTimeout(inactivityTimer);
+      window.removeEventListener('mousemove', handleActivity);
+      window.removeEventListener('keypress', handleActivity);
+      window.removeEventListener('click', handleActivity);
+      window.removeEventListener('scroll', handleActivity);
+      window.removeEventListener('touchstart', handleActivity);
+    };
+  }, []);
 
   const [adminData, setAdminData] = useState({ name: "Admin", email: "" });
 
@@ -28,10 +64,10 @@ const AdminLayout = () => {
   }, []);
 
   const menuItems = [
-    { path: "/admin/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-    { path: "/admin/products", icon: Package, label: "Products" },
-    { path: "/admin/categories", icon: Layers, label: "Categories" },
-    { path: "/admin/change-password", icon: Lock, label: "Change Password" },
+    { path: "/secure-panel-7f3a2c9e/dashboard", icon: LayoutDashboard, label: "Dashboard" },
+    { path: "/secure-panel-7f3a2c9e/products", icon: Package, label: "Products" },
+    { path: "/secure-panel-7f3a2c9e/categories", icon: Layers, label: "Categories" },
+    { path: "/secure-panel-7f3a2c9e/change-password", icon: Lock, label: "Change Password" },
   ];
 
   return (

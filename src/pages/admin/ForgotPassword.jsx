@@ -36,7 +36,7 @@ const ForgotPassword = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 px-4">
       <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
         <button
-          onClick={() => navigate("/admin/login")}
+          onClick={() => navigate("/secure-panel-7f3a2c9e/login")}
           className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 mb-6"
         >
           <ArrowLeft size={20} />
@@ -112,7 +112,7 @@ const ForgotPassword = () => {
           <p className="text-sm text-gray-600 dark:text-gray-400">
             Remember your password?{" "}
             <button
-              onClick={() => navigate("/admin/login")}
+              onClick={() => navigate("/secure-panel-7f3a2c9e/login")}
               className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
             >
               Login

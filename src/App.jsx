@@ -41,10 +41,10 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         
         {/* Admin Routes */}
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/forgot-password" element={<ForgotPassword />} />
+        <Route path="/secure-panel-7f3a2c9e/login" element={<AdminLogin />} />
+        <Route path="/secure-panel-7f3a2c9e/forgot-password" element={<ForgotPassword />} />
         <Route
-          path="/admin"
+          path="/secure-panel-7f3a2c9e"
           element={
             <ProtectedRoute>
               <AdminLayout />

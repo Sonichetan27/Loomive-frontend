@@ -23,8 +23,8 @@ const AdminLogin = () => {
       // Store token and admin data in localStorage
       localStorage.setItem("adminToken", response.token);
       localStorage.setItem("adminData", JSON.stringify(response.admin));
-      
-      navigate("/admin/dashboard");
+
+      navigate("/secure-panel-7f3a2c9e/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed. Please try again.");
     } finally {
