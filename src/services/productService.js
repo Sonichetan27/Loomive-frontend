@@ -17,3 +17,9 @@ export const getAllProducts = async (params = {}) => {
   const res = await API.get("/products", { params });
   return res.data;
 };
+
+// Get all categories (for storefront filters — always reflects what's in the DB)
+export const getCategories = async () => {
+  const res = await API.get("/categories");
+  return res.data.data || [];
+};

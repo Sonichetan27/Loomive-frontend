@@ -21,7 +21,7 @@ const Dashboard = () => {
     try {
       console.log("Fetching stats...");
       const [productsRes, categoriesRes] = await Promise.all([
-        getAllProducts(),
+        getAllProducts({ limit: "all" }),
         getAllCategories(),
       ]);
 

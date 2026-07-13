@@ -34,7 +34,7 @@ const Products = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await getAllProducts();
+      const res = await getAllProducts({ limit: "all" });
       setProducts(res.data || []);
     } catch (error) {
       console.error("Error fetching products:", error);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../services/productService";
+import { getProducts, getCategories } from "../services/productService";
 import ProductCard from "../components/ProductCard";
 import Reveal from "../components/Reveal";
 import AmbientGlow from "../components/AmbientGlow";
@@ -9,6 +9,7 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
+  const [categories, setCategories] = useState([]);
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [inStock, setInStock] = useState(false);
@@ -19,6 +20,18 @@ const Products = () => {
   const [debouncedSearch, setDebouncedSearch] = useState(search);
   const [debouncedMinPrice, setDebouncedMinPrice] = useState(minPrice);
   const [debouncedMaxPrice, setDebouncedMaxPrice] = useState(maxPrice);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const cats = await getCategories();
+        setCategories(cats);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+    fetchCategories();
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -98,9 +111,11 @@ const Products = () => {
               className="px-4 py-2 rounded-lg border dark:bg-gray-900"
             >
               <option value="all">All Categories</option>
-              <option value="sweater">Sweaters</option>
-              <option value="decoration">Decoration</option>
-              <option value="fashion">Fashion</option>
+              {categories.map((cat) => (
+                <option key={cat._id} value={cat.slug}>
+                  {cat.name}
+                </option>
+              ))}
             </select>
 
             {/* Price Range */}
