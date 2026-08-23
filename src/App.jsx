@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Products from "./pages/Products";
 import Navbar from "./components/Navbar";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import AIAssistantWidget from "./components/AIAssistantWidget";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
@@ -31,6 +32,7 @@ function App() {
     <GrainOverlay />
     <Navbar />
     <FloatingWhatsApp />
+    <AIAssistantWidget />
     <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
       <Routes>
         <Route path="/" element={<Home />} />
