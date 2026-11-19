@@ -13,9 +13,8 @@ const Products = () => {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [inStock, setInStock] = useState(false);
-  const [sort, setSort] = useState("newest");
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(6);
+  const [limit] = useState(6);
   const [totalPages, setTotalPages] = useState(1);
   const [debouncedSearch, setDebouncedSearch] = useState(search);
   const [debouncedMinPrice, setDebouncedMinPrice] = useState(minPrice);

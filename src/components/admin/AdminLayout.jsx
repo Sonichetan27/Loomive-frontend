@@ -1,27 +1,26 @@
 import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
 import { LayoutDashboard, Package, Layers, LogOut, Menu, X, Lock } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 const AdminLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [inactivityTimer, setInactivityTimer] = useState(null);
+  const inactivityTimer = useRef(null);
 
-  const handleLogout = () => {
+  const handleLogout = useCallback(() => {
     localStorage.removeItem("adminToken");
     localStorage.removeItem("adminData");
     navigate("/secure-panel-7f3a2c9e/login");
-  };
+  }, [navigate]);
 
   // Auto-logout after 3 minutes of inactivity
   useEffect(() => {
     const resetTimer = () => {
-      if (inactivityTimer) clearTimeout(inactivityTimer);
-      const timer = setTimeout(() => {
+      if (inactivityTimer.current) clearTimeout(inactivityTimer.current);
+      inactivityTimer.current = setTimeout(() => {
         handleLogout();
       }, 3 * 60 * 1000); // 3 minutes
-      setInactivityTimer(timer);
     };
 
     const handleActivity = () => {
@@ -40,28 +39,26 @@ const AdminLayout = () => {
 
     // Cleanup
     return () => {
-      if (inactivityTimer) clearTimeout(inactivityTimer);
+      if (inactivityTimer.current) clearTimeout(inactivityTimer.current);
       window.removeEventListener('mousemove', handleActivity);
       window.removeEventListener('keypress', handleActivity);
       window.removeEventListener('click', handleActivity);
       window.removeEventListener('scroll', handleActivity);
       window.removeEventListener('touchstart', handleActivity);
     };
-  }, []);
+  }, [handleLogout]);
 
-  const [adminData, setAdminData] = useState({ name: "Admin", email: "" });
-
-  useEffect(() => {
+  const [adminData] = useState(() => {
     try {
       const storedData = localStorage.getItem("adminData");
       if (storedData && storedData !== "undefined" && storedData !== "null") {
-        const parsed = JSON.parse(storedData);
-        setAdminData(parsed);
+        return JSON.parse(storedData);
       }
     } catch (error) {
       console.error("Error parsing admin data:", error);
     }
-  }, []);
+    return { name: "Admin", email: "" };
+  });
 
   const menuItems = [
     { path: "/secure-panel-7f3a2c9e/dashboard", icon: LayoutDashboard, label: "Dashboard" },
